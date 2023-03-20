@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { NavLink, Switch, Route } from "react-router-dom";
+import "antd/dist/antd.css";
+import "./App.css";
+import HooksItem from "./HooksItem";
+import FileWrapper from "./FileWrapper";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className="header">
+        <NavLink to="/" exact>
+          Recursive Component
+        </NavLink>
+        <NavLink to="/hooks">Hooks</NavLink>
+      </div>
+
+      <Switch>
+        <Route path="/" exact component={FileWrapper} />
+        <Route path="/hooks" component={HooksItem} />
+      </Switch>
     </div>
   );
 }
